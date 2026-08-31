@@ -1,0 +1,24 @@
+@import './ui/tokens.css';
+
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; }
+html { background: var(--bg-0); }
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+  overflow-x: hidden;
+  color: var(--text-1);
+  background: var(--bg-0);
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "Microsoft YaHei", system-ui, sans-serif;
+  font-size: var(--font-body);
+  line-height: 1.6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea, select { font: inherit; }
+button { color: inherit; }
+h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
+a { color: inherit; }
+::selection { background: rgba(143, 48, 36, .52); color: #fff4d8; }

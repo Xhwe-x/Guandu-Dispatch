@@ -1,0 +1,5 @@
+const fs=require('fs');const path=require('path');
+let ts;try{ts=require('typescript')}catch{try{ts=require(require('child_process').execSync('npm root -g').toString().trim()+'/typescript')}catch{console.error('TypeScript is required for this deep verification. Run npm ci first, or install TypeScript globally.');process.exit(2)}}
+const roots=['src'];let count=0;let diagnostics=[];
+function walk(dir){for(const name of fs.readdirSync(dir)){const full=path.join(dir,name);const st=fs.statSync(full);if(st.isDirectory())walk(full);else if(/\.tsx?$/.test(name)){count++;const source=fs.readFileSync(full,'utf8');const out=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext,jsx:ts.JsxEmit.ReactJSX},fileName:full,reportDiagnostics:true});for(const d of out.diagnostics||[]){if(d.category===ts.DiagnosticCategory.Error)diagnostics.push(`${full}: ${ts.flattenDiagnosticMessageText(d.messageText,' ')}`)}}}}
+roots.forEach(walk);if(diagnostics.length){console.error(diagnostics.join('\n'));process.exit(1)}console.log(`v0.9 syntax verification passed: ${count} TS/TSX files, 0 syntax diagnostics`);

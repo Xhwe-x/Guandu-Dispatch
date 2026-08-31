@@ -1,0 +1,4 @@
+Task 7 — B-mode guidance
+PASS: node scripts/verify-v09-syntax.cjs
+PASS: task7 static contract (proactive cue once-only state, three-level manual hint cap, legacy hintUsage mirroring, inline ObjectiveRail cue, dossier target highlighting)
+Vitest not executed: npm registry is unreachable from this environment (EAI_AGAIN).

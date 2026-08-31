@@ -1,0 +1,4 @@
+Task 5 — dossier knowledge hub
+PASS: node CHECKPOINTS/task5-red.cjs
+PASS: node scripts/verify-v09-syntax.cjs
+KNOWN LEGACY CONTRACT CONFLICT: npm run verify:v094 stops at verify-v09-zhao-layout.cjs because the old conditional evidence-tray rule conflicts with the approved v0.9.5 evidence-first confrontation design. This is deferred to Task 10 acceptance-contract update per HANDOFF.

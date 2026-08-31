@@ -1,0 +1,14 @@
+Task 10 — full core-loop playthrough + delivery acceptance
+TDD RED 1: CHECKPOINTS/task10-red.cjs failed before applyEnemyFeedbackResolution existed.
+TDD RED 2: CHECKPOINTS/task10-bait-red.cjs failed before indistinguishable real-plan bait was rejected.
+GREEN coverage:
+- recoverable irrelevant evidence
+- incomplete theory -> missing-route
+- dossier gap return path
+- Du Heng supplementary evidence
+- theory supported
+- Zhao + Du distinguishable core bait
+- EnemyFeedback -> verified
+- stage report / verify-network objective
+- old v0.9-v0.9.4 contracts retained except approved v0.9.5 conflicts
+Final fresh results are recorded in core-loop-final.txt.

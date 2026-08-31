@@ -1,0 +1,46 @@
+:root {
+  --bg-0: #0d0c0a;
+  --bg-1: #15120e;
+  --surface-1: rgba(27, 23, 17, .92);
+  --surface-2: rgba(38, 31, 22, .92);
+  --paper-1: #d8c39a;
+  --paper-2: #bba579;
+  --text-1: #eee2c4;
+  --text-2: #bcae91;
+  --text-dark: #34291b;
+  --gold: #aa8449;
+  --gold-soft: #7c643b;
+  --vermillion: #8f3024;
+  --danger: #9c3b2e;
+  --success: #718a70;
+  --border: rgba(176, 139, 78, .25);
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --font-scene-title: clamp(22px, 2vw, 30px);
+  --font-character-name: clamp(19px, 1.6vw, 24px);
+  --font-dialogue: clamp(16px, 1.05vw, 18px);
+  --font-body: clamp(14px, .95vw, 16px);
+  --font-caption: 13px;
+  --font-nav: clamp(13px, .9vw, 15px);
+  --font-chapter: clamp(32px, 3vw, 40px);
+
+  --scene-header-height: 52px;
+  --content-max: 1440px;
+  --ease-fast: 140ms ease;
+  --ease-dialogue: 180ms ease;
+  --ease-reveal: 260ms ease;
+}

@@ -1,0 +1,10 @@
+import { createInitialState } from '../src/game/initialState';
+import { gameReducer } from '../src/game/reducer';
+const initial=createInitialState();
+if(initial.version!==6) throw new Error('version should be 6');
+if(Object.keys(initial.coreLoop.knowledge).length!==0) throw new Error('coreLoop knowledge should start empty');
+const next=gameReducer(initial,{type:'UPSERT_KNOWLEDGE',entry:{id:'claim-zhao-time',kind:'claim',status:'observed',sourceIds:[],relatedPersonIds:['zhao'],relatedDocumentIds:[],lastUpdatedAt:1}});
+if(next.coreLoop.knowledge['claim-zhao-time']?.status!=='observed') throw new Error('knowledge update failed');
+const supported=gameReducer(next,{type:'SET_KNOWLEDGE_STATUS',knowledgeId:'claim-zhao-time',status:'supported',at:2});
+if(supported.coreLoop.knowledge['claim-zhao-time']?.status!=='supported') throw new Error('status update failed');
+console.log('task1 runtime PASS');

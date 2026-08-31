@@ -1,0 +1,5 @@
+.v09-blur-fade{animation:v09BlurFade 260ms ease both;animation-delay:var(--v09-delay,0ms)}
+@keyframes v09BlurFade{from{opacity:0;filter:blur(4px);transform:translateY(6px)}to{opacity:1;filter:blur(0);transform:none}}
+@media(prefers-reduced-motion:reduce){.v09-blur-fade{animation:none!important}.v09-opening__visual img{transition:none!important}}
+@keyframes v09-list-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}.v09-animated-list__item{animation:v09-list-in 180ms ease both}.v09-character-reveal{animation:v09-character-reveal 260ms ease both}@keyframes v09-character-reveal{from{opacity:0;filter:blur(4px);transform:translateY(6px)}to{opacity:1;filter:blur(0);transform:none}}.v09-scene-transition{animation:v09-scene-in 600ms ease both}@keyframes v09-scene-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.v09-animated-list__item,.v09-character-reveal,.v09-scene-transition{animation:none!important}}

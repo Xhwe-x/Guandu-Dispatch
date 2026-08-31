@@ -1,0 +1,50 @@
+Guandu Dispatch v0.9.5 Core Experience Pass — final source-tree verification
+Date: 2026-08-29
+
+PASS — npm run verify:v095
+- exit 0
+- v0.9 through v0.9.4 compatibility/static contracts passed
+- v0.9.5 core-loop delivery contract passed
+
+PASS — npm run verify:v095:deep
+- exit 0
+- v0.9.5 core-loop runtime playthrough passed
+- v0.9 lightweight runtime migration/recovery verification passed
+- 157 TS/TSX files, 0 syntax diagnostics
+
+PASS — node CHECKPOINTS/task9-red.cjs
+- currentV6Schema=true
+- legacyV5Schema=true
+- coreLoopPersisted=true
+- v5Migration=true
+- loaderAcceptsV6=true
+
+PASS — node CHECKPOINTS/task10-red.cjs
+- task10 integration rule contract ready
+
+PASS — node CHECKPOINTS/task10-bait-red.cjs
+- bait distinguishability contract passed
+
+ENVIRONMENT-BLOCKED — npm run test:run
+- exit 127
+- sh: 1: vitest: not found
+
+ENVIRONMENT-BLOCKED — npm run build
+- exit 1
+- TS2688: Cannot find type definition file for 'vite/client'
+- TS2688: Cannot find type definition file for 'node'
+
+ENVIRONMENT-BLOCKED — npm run lint
+- exit 127
+- sh: 1: oxlint: not found
+
+Interpretation:
+Tasks 1–10 source implementation and project-owned static/rules-level delivery contracts are complete and fresh-green.
+Do NOT treat standard Vitest/build/lint or real-browser visual acceptance as certified until npm ci succeeds on a clean machine.
+
+PACKAGING COPY VERIFIED — 2026-08-29
+- npm run verify:v095:deep: PASS
+- task9 migration contract: PASS
+- task10 integration contract: PASS
+- bait distinguishability regression: PASS
+- node_modules intentionally absent from delivery; run npm ci on target machine.

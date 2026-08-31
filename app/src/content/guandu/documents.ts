@@ -1,0 +1,88 @@
+import type { Document } from '../../game/domain';
+
+export const documents: Document[] = [
+  {
+    id: 'report-ambush',
+    title: '残缺伏击军报',
+    category: 'report',
+    body: '北桥东侧芦苇滩发现粮车断辕与散落粮袋，泥面重车辙在桥头骤乱。伏击坡后留有成排蹄印和数堆冷炊灰，斥候按灰温与夜露判断敌骑已于寅时前集结。驿站送来的军令匣封蜡未破，匣内页数尚待复核。现场记载只录位置、痕迹与时刻，不说明消息来自何处。',
+    claimIds: ['claim-ambush-north', 'claim-no-full-order', 'claim-shuoyuan-received'],
+  },
+  {
+    id: 'ledger-original',
+    title: '粮秣出入簿（原簿）',
+    category: 'ledger',
+    body: '旧册登记粟米八百六十袋、豆料一百四十袋，分装二十四辆粮车；末栏有邮驿主吏陆淳签押。纸面先写清点数，再依次落验收小印和驿传大印，墨色陈旧一致。册页只记仓号、袋数与发放次序，没有车队最终路线，也没有集合或启程时辰。',
+    claimIds: ['claim-lu-no-time', 'claim-lu-seal-order'],
+  },
+  {
+    id: 'ledger-revised',
+    title: '粮秣出入簿（改簿）',
+    category: 'ledger',
+    body: '新册将粟米改为八百二十袋，豆料数目未变，陆淳的签押仍在页尾。验收小印却压在驿传大印之上，盖印顺序与通常先验货后调度的做法相反；改写处墨色也较新。全册仅涉及粮袋数量和仓房去向，既未填写粮队行路方向，也未注明集合时辰。',
+    claimIds: ['claim-lu-ledger-change'],
+  },
+  {
+    id: 'repair-wagons',
+    title: '车马修治簿',
+    category: 'repair',
+    body: '初记有七辆粮车轮箍开裂，复核页却改作三辆，改写笔迹与军粮书佐郑禾日常批注相同。工匠另附新换车轮规格：轮径三尺二寸、加厚铁箍，适合承载重粮。登记栏只列车号、损坏数和配件，不含行程；交接簿也显示郑禾在路线核定前已离开调度房。',
+    claimIds: ['claim-zheng-repair-change', 'claim-zheng-no-route', 'claim-zheng-scale'],
+  },
+  {
+    id: 'repair-north-bridge',
+    title: '北桥修治牍',
+    category: 'repair',
+    body: '木作行在两日前更换北桥三根腐梁，并以满载石车往返试压。验收记载桥面可承二十四辆重型粮车分批通过，桥北引道仍有一段湿软，须放慢车速。修缮告示曾贴在驿站外墙，往来商旅都能看到，但文中未提曹军的实际运输安排。',
+    claimIds: ['claim-bridge-open'],
+  },
+  {
+    id: 'station-entry',
+    title: '邮舍出入簿',
+    category: 'ledger',
+    body: '近十日记录中，杜衡以送草料、结算车具为由五次进入外院。草料常例是每辆重车五束，此次采购单合计一百二十束，手算可对应二十四辆重车；称重时杜衡在旁核价。他还问过新车轮的轮径与铁箍厚度，但通行牌只能到外院，不能进入存放完整军令的内房。',
+    claimIds: ['claim-du-wheel-question', 'claim-du-fodder-pattern', 'claim-du-route'],
+  },
+  {
+    id: 'statement-lu',
+    title: '陆淳口供',
+    category: 'statement',
+    body: '陆淳称自己只按仓吏呈上的数目盖印，从未把军情交给外人。他否认改动过粮册数量；问到两版册页为何少了四十袋粟米时，又只说可能是账房誊写有误，拒绝继续说明。他强调调度房在最后一刻才收路线与时辰，邮驿主吏只掌封检、邮书和驿马调用次序。',
+    claimIds: ['claim-lu-denial', 'claim-lu-relief-motive'],
+  },
+  {
+    id: 'statement-zheng',
+    title: '郑禾口供',
+    category: 'statement',
+    body: '郑禾称粮车只有三辆轻伤，明确否认改写过维修记录，还说七辆的旧数是工匠误写。他承认负责清点车辆和安排换轮，却说路线由调度房另行封存，军粮书佐只在出发前接到车数。面对改写笔迹，他把责任推给不识字的学徒，并要求先查陆淳的粮册。',
+    claimIds: ['claim-zheng-denial'],
+  },
+  {
+    id: 'statement-zhao',
+    title: '赵简口供',
+    category: 'statement',
+    body: '赵简称自己只负责誊抄集合文书，不参与议定，因此不知道集合时辰。他说值夜安排由上官口授，写完便把底稿交回。卷后所附命令与其日常笔迹相合，家书封口却有被重新粘合的痕迹；近月值簿还记他连续替同僚当夜差。',
+    claimIds: ['claim-zhao-denial', 'claim-zhao-copied-order', 'claim-zhao-time', 'claim-zhao-coerced', 'claim-zhao-night-duty'],
+  },
+  {
+    id: 'statement-du',
+    title: '杜衡口供',
+    category: 'statement',
+    body: '杜衡称自己只是按订单送货，不懂军务，也无从判断粮队去向。他解释多次进驿是催讨草料和车具旧账，询问车轮只为替同行估价；至于价格表上的异数，则说是雨季道路涨价所致。他否认与袁军控制区客商往来，却无法说清几笔无货物交割的收款。',
+    claimIds: ['claim-du-denial'],
+  },
+  {
+    id: 'trade-prices',
+    title: '商价簿',
+    category: 'trade',
+    body: '杜衡账箱内的价格表列有草料、铁箍、桐油和盐。数笔价格明显偏离驿站同期成交：草料尾数按车数递增，铁箍价差对应桥梁承重等级，盐价的十二地支序号编码时刻。将这些异数与商路里程并列，能得到一组路线和时辰，却没有任何一项写成军令。',
+    claimIds: ['claim-price-cipher'],
+  },
+  {
+    id: 'route-map',
+    title: '官渡粮道图牍',
+    category: 'map',
+    body: '北桥距驿站十八里，可通重车；南渡二十二里，可通普通粮车；西岭十四里，只宜轻车与空车。驿站、伏击点及三路里程均有标记。',
+    claimIds: ['claim-south-ford-open', 'claim-west-ridge-light'],
+  },
+];

@@ -1,0 +1,4 @@
+Task 8 — theory-driven bait + enemy feedback
+PASS: node scripts/verify-v09-syntax.cjs
+PASS: task8 static contract (no exactly-four-channel gate; Zhao+Du core experiment; Lu/Zheng optional controls; feedback can verify or return to investigation)
+Vitest not executed: npm registry is unreachable from this environment (EAI_AGAIN).

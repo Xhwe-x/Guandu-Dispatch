@@ -1,0 +1,20 @@
+const fs=require('fs');const assert=require('assert');
+const read=(p)=>fs.readFileSync(p,'utf8');
+const shell=read('src/features/scenes/GameShell.tsx');
+const recovery=read('src/game/v09PresentationMigration.ts');
+const presentation=read('src/game/presentationRecovery.ts');
+const schema=read('src/game/contentSchema.ts');
+const recoveryView=read('src/features/ui/SceneRecovery.tsx');
+const recoveryCss=read('src/features/ui/ui.css');
+
+assert.match(recovery,/v09RecoverySceneForState/, 'v0.9 recovery helper must exist');
+assert.match(recovery,/v09ChapterStartForStage/, 'v0.9 chapter-start helper must exist');
+assert.match(shell,/v09RecoverySceneForState\(state\)/, 'SceneRecovery must use v0.9 state-aware recovery');
+assert.match(shell,/v09ChapterStartForStage\(state\.stage\)/, 'chapter restart must use v0.9 safe chapter start');
+assert.doesNotMatch(shell,/state\.stage === 'documents' \? 'document'/, 'recovery must not send v0.9 saves into legacy document scene');
+assert.doesNotMatch(shell,/storySceneId: state\.stage === 'documents' \? 'camp-brief'/, 'restart must not restore legacy camp story');
+assert.match(schema,/sanitizeV09Presentation/, 'current v5 saves must sanitize legacy history/scenes on load');
+assert.match(presentation,/V09_STORY_SCENE_IDS/, 'presentation recovery must recognize v0.9 story entries');
+assert.match(recoveryView,/\.\.\/\.\.\/ui\/primitives\/GameButton/, 'recovery page must use the v0.9 button primitive');
+assert.doesNotMatch(recoveryCss,/scene-recovery__sheet h1\{[^}]*5vw/, 'recovery title must not use the old oversized responsive heading');
+console.log('v0.9 recovery contract OK');

@@ -1,0 +1,15 @@
+const fs=require('fs');const path=require('path');const assert=require('assert');
+const root=path.resolve(__dirname,'..');
+const read=(p)=>fs.readFileSync(path.join(root,p),'utf8');
+const title=read('src/features/scenes/TitleScene.tsx');
+const opening=read('src/features/scenes/OpeningFlowScene.tsx');
+const saves=read('src/features/scenes/SaveSlotScreen.tsx');
+const css=read('src/features/scenes/v09.css');
+assert.match(title,/v0\.9\.[3-9]|GUANDU DISPATCH · v0\.9\.[3-9]/,'title must show the current version footer');
+assert.match(opening,/v093-opening-hud/,'opening must expose a cinematic progress HUD');
+assert.match(opening,/keydown|KeyboardEvent|Enter/,'opening must support keyboard continue');
+assert.match(saves,/recentSlotId/,'save screen must identify most recent slot');
+assert.match(saves,/save-slot__thumb/,'save cards need scene thumbnails');
+assert.match(saves,/最近游玩/,'save cards need recent-play label');
+assert.match(css,/\.save-slot__thumb/,'save thumbnail styling missing');
+console.log('v0.9.3 opening/save experience contract OK');

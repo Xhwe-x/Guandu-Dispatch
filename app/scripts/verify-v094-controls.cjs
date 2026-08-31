@@ -1,0 +1,13 @@
+const fs = require('fs');
+const path = require('path');
+const assert = require('assert');
+const root = path.resolve(__dirname, '..');
+const primitives = fs.readFileSync(path.join(root, 'src/ui/primitives/primitives.css'), 'utf8');
+const scenes = fs.readFileSync(path.join(root, 'src/features/scenes/scenes.css'), 'utf8');
+const gameCss = fs.readFileSync(path.join(root, 'src/ui/game/game.css'), 'utf8');
+const network = fs.readFileSync(path.join(root, 'src/features/scenes/NetworkInvestigationScene.tsx'), 'utf8');
+assert(primitives.includes('.v09-button{min-height:42px;height:auto;') && primitives.includes('border-radius:14px'), 'Buttons should support taller rounded controls.');
+assert(scenes.includes('.dossier-actions>.v09-button{flex:1 1 220px;') && scenes.includes('.network-character-focus .dialogue-character-card{width:100%;min-height:340px;'), 'Dossier actions and character focus should have the v0.9.4 layout guardrails.');
+assert(gameCss.includes('.v09-dialogue-panel__copy{max-width:680px;') && gameCss.includes('.v09-character-intro>section,.v09-dialogue-panel__stage{grid-template-columns:minmax(280px,36%) minmax(0,1fr);'), 'Dialogue and intro layouts should align portrait and text.');
+assert(network.includes('data-complete={coreReady}'), 'Network status should reflect completion state for clearer feedback.');
+console.log('verify-v094-controls: ok');

@@ -1,0 +1,15 @@
+import { claims } from '../src/content/guandu/claims';
+import type { GameContent } from '../src/game/domain';
+import { createInitialState } from '../src/game/initialState';
+import { markObservedClaim, promoteKnowledge } from '../src/game/rules/knowledge';
+import { resolveEvidenceReaction } from '../src/game/rules/evidenceReaction';
+const content={claims} as unknown as GameContent;
+let state=markObservedClaim(content,createInitialState(),'claim-zhao-copied-order',1); state={...state,extractedClaimIds:['claim-zhao-copied-order']};
+let result=resolveEvidenceReaction(content,state,'zhao','claim-zhao-copied-order',100);
+if(result.reaction!=='breakthrough') throw new Error('Zhao should break');
+if(result.state.coreLoop.knowledge['claim-zhao-time']?.status!=='supported') throw new Error('time should be supported');
+state=markObservedClaim(content,createInitialState(),'claim-price-cipher',1); state=promoteKnowledge(state,'claim-price-cipher','supported',2);
+result=resolveEvidenceReaction(content,state,'zhao','claim-price-cipher',100);
+if(result.reaction!=='irrelevant') throw new Error('wrong evidence should be irrelevant');
+if(result.state.personStates.zhao==='hostile') throw new Error('wrong evidence must not lock person');
+console.log('task4 runtime PASS');

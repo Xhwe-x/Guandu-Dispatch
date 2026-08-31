@@ -1,0 +1,2 @@
+const fs=require('fs');const s=fs.readFileSync('src/features/scenes/NetworkInvestigationScene.tsx','utf8');function m(v,x){if(!v){console.error('FAIL:',x);process.exitCode=1}}
+for(const text of ['邮驿主吏 · 掌驿舍文书流转与封检','军粮书佐 · 管车马簿与粮秣出入','营外行商 · 长期供应草料、车具与灯油'])m(s.includes(text),`missing intro: ${text}`);m(s.includes('introducedIds'),'progressive introduction state missing');m(s.includes('CharacterIntro'),'CharacterIntro integration missing');if(process.exitCode)process.exit(process.exitCode);console.log('v0.9 character intro contract OK');

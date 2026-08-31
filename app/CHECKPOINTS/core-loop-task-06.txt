@@ -1,0 +1,4 @@
+Task 6 — persistent theory graph + gaps
+PASS: node scripts/verify-v09-syntax.cjs
+PASS: task6 static contract (the old three-question TheoryKey/questions pattern is gone; theory evaluator + gap navigation actions exist)
+Vitest not executed yet: dependency install is blocked by registry DNS EAI_AGAIN in this environment. Runtime verification will use the repository's dependency-free checkpoint approach where possible.

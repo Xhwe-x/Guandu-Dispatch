@@ -1,0 +1,5 @@
+Task 9 — v5 -> v6 persistence migration
+RED evidence: CHECKPOINTS/task9-red.cjs originally reported missing current-v6 / legacy-v5 / migration contracts.
+GREEN target: current schema v6, explicit LegacyGameStateV5Schema, persisted coreLoop, v5 inference, loader accepts v6.
+Final command/result is recorded again in core-loop-final.txt during packaging verification.
+Standard Vitest migration suite is present in src/game/persistence.test.ts and src/game/saveSlots.test.ts but cannot be executed in this container because node_modules is an incomplete interrupted installation.

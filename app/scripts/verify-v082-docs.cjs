@@ -1,0 +1,11 @@
+const fs=require('fs');const path=require('path');const app=path.resolve(__dirname,'..');const root=path.resolve(app,'..');
+const read=(f)=>fs.readFileSync(path.join(root,f),'utf8');
+const design=read('官渡密报_产品与技术设计草案_v0.3.md');
+for(const t of ['邮驿主吏','军粮书佐','军书佐','营外行商','封检','邮书','AI 占位配音']) if(!design.includes(t)) throw new Error(`design sync missing: ${t}`);
+const readme=read('README.md');
+for(const t of ['陆淳、郑禾、杜衡','差异化浏览器语音声线','历史化词典']) if(!readme.includes(t)) throw new Error(`README sync missing: ${t}`);
+const auditPath=path.join(root,'FINAL_DELIVERY_AUDIT_v0.8.2.md');
+if(!fs.existsSync(auditPath)) throw new Error('v0.8.2 audit missing');
+const audit=fs.readFileSync(auditPath,'utf8');
+for(const t of ['已完成','部分完成','未完成','需要用户支持','npm ci']) if(!audit.includes(t)) throw new Error(`audit section missing: ${t}`);
+console.log('v0.8.2 documentation contract OK');

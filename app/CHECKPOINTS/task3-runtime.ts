@@ -1,0 +1,14 @@
+import { guanduObjectives } from '../src/content/guandu/coreLoop';
+import { claims } from '../src/content/guandu/claims';
+import type { GameContent } from '../src/game/domain';
+import { createInitialState } from '../src/game/initialState';
+import { markObservedClaim, promoteKnowledge, syncObjectivesUntilStable } from '../src/game/rules/knowledge';
+const content={claims} as unknown as GameContent;
+let state=markObservedClaim(content,createInitialState(),'claim-du-fodder-pattern',100);
+if(state.coreLoop.knowledge['claim-du-fodder-pattern']?.status!=='observed') throw new Error('observe failed');
+if(!state.coreLoop.knowledge['claim-du-fodder-pattern']?.relatedPersonIds.includes('du')) throw new Error('person index failed');
+state=promoteKnowledge(state,'claim-zhao-time','verified',10); state=promoteKnowledge(state,'claim-zhao-time','observed',20);
+if(state.coreLoop.knowledge['claim-zhao-time']?.status!=='verified') throw new Error('downgraded verified knowledge');
+state=syncObjectivesUntilStable(state,guanduObjectives);
+if(state.coreLoop.guidance.currentObjectiveId!=='objective-route-leak') throw new Error('objective did not advance');
+console.log('task3 runtime PASS');
